@@ -1,0 +1,80 @@
+<!-- 自定义标题栏 -->
+<!-- <header title_text="{{ headerConfig.title_text }}" title_height="{{ headerConfig.title_height}}" statusbarHeight ="{{ headerConfig.statusbarHeight }}"></header> -->
+<navigationBar id="navigationBar" title="{{activity.name ? activity.name : headerConfig.title_text}}" back="true" color="#4A4A4A" fontSize="37rpx" fixed="true"></navigationBar>
+
+<view class="page-wrap">
+
+  <view class="home-wrap">
+    <view class="home-tab">
+      <!-- <view class='home-tab-left'>
+        <text class="home-tab-text">开卷有益 读书是金</text>
+      </view> -->
+      <view class="banner">
+        <image class="banner-img" src="../../assets/images/bg_home.png" />
+      </view>
+    </view>
+
+    <view class='home-tab-content'>
+      <text>{{ activity.intro.desc ? activity.intro.desc : '参与21天读书打卡挑战，一起助力公益，赢取黄金大奖！' }}</text>
+    </view>
+  </view>
+
+  <!-- 开始挑战 -->
+  <view class="start">
+    <form reportSubmit="true" bindsubmit='handleSubmit'>
+      <button open-type='getUserInfo' lang='zh-CN' bindgetuserinfo='onGotUserInfo' class='btn-rectangle' formType="submit">开始挑战</button>
+    </form>
+  </view>
+  <!-- 活动规则 -->
+  <view class="detail">
+
+    <form reportSubmit="true" bindsubmit='handleSubmit'>
+      <button class='btn-nobg' bindtap='togglePopup1' formType="submit">活动规则</button>
+    </form>
+
+    <van-popup show="{{ popShow1 }}" custom-class="custom-popup" overlay-style="background:rgba(155,155,155,0.5);" bind:close="togglePopup1">
+      <view class='pop-title'>
+        <text>活动规则</text>
+      </view>
+      <view class='pop-content1'>
+        <text style="text-align:left;">{{ (activity.intro.rule1 && activity.intro.rule2) ? activity.intro.rule1+'\n\n'+activity.intro.rule2 : rule }}</text>
+      </view>
+      <form reportSubmit="true" bindsubmit='handleSubmit'>
+        <button class='btn-nobg' bindtap='togglePopup1' formType="submit">朕了解了</button>
+      </form>
+
+    </van-popup>
+
+    <form reportSubmit="true" bindsubmit='handleSubmit'>
+      <button class='btn-nobg' bindtap='togglePopup2' formType="submit">奖项设置</button>
+    </form>
+
+    <van-popup show="{{ popShow2 }}" custom-class="custom-popup" bind:close="togglePopup2">
+      <view class='pop-title'>
+        <text>奖项设置</text>
+      </view>
+      <view class='pop-content2'>
+        <view class="jiangpin">
+          <view>特等奖<text class="num">1</text>名</view>
+          <view>价值3000元金条10g</view>
+        </view>
+        <view class="jiangpin">
+          <view>一等奖<text class="num">5</text>名</view>
+          <view>价值698元西班牙珍藏级干红葡萄酒2支</view>
+        </view>
+        <view class="jiangpin">
+          <view>二等奖<text class="num">15</text>名</view>
+          <view>价值348元财新周刊一年期阅读礼品卡一张</view>
+        </view>
+        <view class="jiangpin">
+          <view>三等奖<text class="num">30</text>名</view>
+          <view>价值158元小罐茶礼两盒</view>
+        </view>
+      </view>
+      <form reportSubmit="true" bindsubmit='handleSubmit'>
+        <button class='btn-nobg' bindtap='togglePopup2' formType="submit">朕知道了</button>
+      </form>
+
+    </van-popup>
+  </view>
+</view>

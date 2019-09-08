@@ -1,0 +1,60 @@
+<view class="share-wrap">
+  <!-- 背景图片 -->
+  <view class="banner">
+    <image class="banner-img" src="../../assets/images/bg_bookmark.png" />
+  </view>
+
+  <view class="container">
+    <!-- 内容 -->
+    <view class="share-content">
+      <view class="header">
+        <view class="qr-code" bindtap="handleGoHome"></view>
+        <!-- <image class="qr-code" src="../../assets/images/qr-code.png" /> -->
+        <view class="date">
+          <view class="day">{{ day }}</view>
+          <view class="year">{{ year }}</view>
+          <view class="month">{{ month }}</view>
+        </view>
+      </view>
+
+      <view class="book-summary">
+        <view class="book-summary-text">{{ activity_content.summary ? activity_content.summary : default_content.summary}}</view>
+      </view>
+
+
+      <view class='book'>
+        <view class='book-left'>
+          <image class="book-img" src="../../assets/images/book_img.png"></image>
+          <view class="book-name">《{{ activity_content.author ? activity_content.author : default_content.author}}》</view>
+        </view>
+        <view class='book-comment'>
+          <view class="book-commenter">好舍好得推荐语：</view>
+          <view class="book-comment-content">
+            {{ activity_content.comment ? activity_content.comment : default_content.comment}}
+          </view>
+        </view>
+      </view>
+
+      <view class="footer">
+        <view class="footer-left">
+          <!-- <view class="book-name">今日推荐书籍《哲学的盛宴》</view>
+          <view class="event-name">好舍好得猪年新春21天读书分享节</view> -->
+        </view>
+
+        <view class="footer-right">
+
+          <form reportSubmit="true" bindsubmit='handleSubmit'>
+            <button class='share' data-name="shareBtn" open-type="share" plain='true' formType="submit">
+              <image class='_img' src="../../assets/images/icon-wechat.png"></image>
+            </button>
+          </form>
+
+          <view class='share' bindtap='sharePhoto' data-poster-url='{{ activity_content.poster_img_url ? activity_content.poster_img_url : default_content.poster_img_url }}'>
+            <image class='_img' src="../../assets/images/icon-photo.png"></image>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

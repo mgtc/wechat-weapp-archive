@@ -1,0 +1,25 @@
+<import src="/pages/common/groupItem.wxml" />
+
+<view class="container">
+  <view class="tag-box">
+    <view wx:for="{{tags}}" wx:key="*this"
+      class="tag-item {{item.state?'tag-item-active':''}}"
+      data-index="{{index}}"
+      catchtap="changeTag">
+      {{item.name}}
+    </view>
+  </view>
+  <scroll-view scroll-y enable-back-to-top="true" class="group-box">
+    <view
+      class="group-item"
+      wx:for="{{groups}}"
+      wx:key="*this"
+      catchtap="toGroup"
+      data-id="{{item.groupid}}"
+      hidden="{{(currentTag===0&&!item.state)||(currentTag===1&&item.state)?false:true}}">
+      <template
+        is="groupItem"
+        data="{{...item}}" />
+    </view>
+  </scroll-view>
+</view>

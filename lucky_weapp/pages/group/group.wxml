@@ -1,0 +1,197 @@
+<view class="container">
+  <!-- top-banner -->
+  <view class="top-banner-box">
+    <image class="top-banner" src="/static/common/top-banner.png"></image>
+  </view>
+  <!-- slogan -->
+  <view class="slogan-box">
+    <view class="slogan">比十二星座更精准的 AI 年运报告</view>
+    <view class="slogan">助你开启 2018 年的财富感情和命运</view>
+  </view>
+  <!-- price -->
+  <view class="price-discount">¥ {{price.discount}}</view>
+  <!-- group-intro -->
+  <view class="group-intro">
+    <view class="group-info-content">原价 ¥ {{price.original}}</view>
+    <view class="vertical-line"></view>
+    <view class="group-info-content">4人拼团</view>
+  </view>
+  <!-- member -->
+  <view class="member-box">
+    <text style="padding: 10rpx 0;">已参团</text>
+    <view class="member-line">
+      <view class="member" wx:for="{{member}}" wx:key="*this">
+        <image class="member-head" src="{{item.headUrl}}" background-size="cover"></image>
+      </view>
+    </view>
+    <view class="progress-box">
+      <progress
+      class="progress"
+      percent="{{member.length/4*100}}"
+      stroke-width="12"
+      show-info="true"
+      active="true"
+      active-mode="forwards" />
+    </view>
+  </view>
+  <!-- dash-box -->
+  <view class="dash-box">
+    <!-- finish && in -->
+    <view wx:if="{{finished && partake}}" class="done-state finished">
+      <icon type="success" size="46"/>
+      <text class="done-text">团购完成</text>
+      <button
+        class="unlock-btn"
+        catchtap="toOrder">
+        <image class="bt-logo-left" src="/static/group/btn-unlock.png" background-size="cover"></image>
+        <text>点击查看报告</text>
+        <image class="bt-logo-left" src="/static/group/btn-unlock.png" background-size="cover"></image>
+      </button>
+    </view>
+    <!-- finish && not-in -->
+    <view wx:elif="{{finished && !partake}}" class="done-state closed">
+      <!-- <icon type="clear" size="46"/> -->
+      <text class="done-text">这单已经拼满了，自己组个团吧~</text>
+      <view class="fixed-share-btn">
+        <button
+            class="fix-btns"
+            catchtap="toIndex">
+            <text>发起拼单</text>
+          </button>
+      </view>
+    </view>
+    <!-- not-finish && in -->
+    <view wx:elif="{{!finished && partake}}" class="done-state partaked">
+      <icon type="waiting" size="46" color="#1FB822"/>
+      <text class="done-text">您已参与该团购</text>
+      <view class="share-tip">
+        还差
+        <text style="color:#ff461f; font-weight: bold;">{{4-member.length}}</text>
+        个名额，继续邀请朋友来参团~
+      </view>
+      <view class="fixed-share-btn">
+        <button
+            class="fix-btns"
+            open-type="share"
+            catchtap="">
+            <text>邀请好友拼团</text>
+          </button>
+      </view>
+    </view>
+    <!-- not-finish && not-in -->
+    <view wx:else class="unpartaked">
+      <!-- count-down -->
+      <view class="count-down">
+        仅剩 <text style="color: #ff461f;">{{4-member.length}}</text> 个名额
+      </view>
+      <view class="count-down" style="color: #ff461f;">
+        {{clock}}
+      </view>
+      <view class='banner-area'>
+        <image class='banner' src='/static/index/banner.png'></image>
+      </view>
+      <view class='chart-area'>
+        <image class='chart' src='/static/index/chart.png'></image>
+      </view>
+      <view class='category-area'>
+        <image class='category' src='/static/index/category.png'></image>
+      </view>
+      <view class='counselor-area'>
+        <image class='counselor counselor-1' src='/static/index/counselor-1.png'></image>
+        <image class='counselor counselor-2' src='/static/index/counselor-2.png'></image>
+        <image class='counselor counselor-3' src='/static/index/counselor-3.png'></image>
+      </view>
+      <view class="fixed-pay-box">
+        <button
+          class="fix-btns"
+          catchtap="showModal"
+          data-group="0">
+          <image class="bt-logo-left" src="/static/group/btn-left.png" background-size="cover"></image>
+          <text>有钱任性 ¥{{price.original}}</text>
+        </button>
+        <button
+          class="fix-btns"
+          catchtap="showModal"
+          data-group="1">
+          <image class="bt-logo-right" src="/static/group/btn-right.png" background-size="cover"></image>
+          <text>我要拼团 ¥{{price.discount}}</text>
+        </button>
+      </view>
+      <!-- 生日弹窗 -->
+      <view
+        class="mask-screen"
+        bindtap="hideModal"
+        wx:if="{{showModalStatus}}">
+      </view>
+      <view
+        animation="{{animationData}}"
+        class="input-screen"
+        wx:if="{{showModalStatus}}">
+        <view class="input-area">
+          <view class="section">
+            <view>你的名字</view>
+            <view class="input-section">
+              <input
+                name="input"
+                bindblur="nameChange"
+                bindconfirm="nameChange"
+                placeholder="点击输入"
+                value="{{inputName}}" />
+            </view>
+          </view>
+          <view class="section">
+            <view>你的性别</view>
+            <view class="input-section">
+              <radio-group catchchange="sexChange">
+                <label class="radio" wx:for="{{sexChoice}}" wx:key="*this">
+                  <radio value="{{item.value}}" checked="{{item.checked}}"/>
+                  {{item.value}}
+                </label>
+              </radio-group>
+            </view>
+          </view>
+          <view class="section {{dateSelected?'':'attention'}}">
+            <view>出生日期</view>
+            <view class="input-section">
+              <picker
+                class="picker"
+                mode="date"
+                value="1990-01-01"
+                start="1920-01-01"
+                end="{{endDate}}"
+                bindchange="dateChange">
+                <view class="{{dateSelected?'':'unpick'}}">
+                  公历 {{date}}
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="section {{timeSelected?'':'attention'}}">
+            <view>出生时间</view>
+            <view class="input-section">
+              <picker
+                class="picker"
+                mode="time"
+                value="{{time}}"
+                start="00:00"
+                end="23:59"
+                bindchange="timeChange">
+                <view class="{{timeSelected?'':'unpick'}}">
+                  {{timeSelected?'':timeNotice}}{{time}}
+                </view>
+              </picker>
+            </view>
+          </view>
+          <view class="btns">
+            <button
+              class="pay-btn"
+              catchtap="payToInfo">
+              <image class="bt-logo" src='/static/index/bt.png' background-size="cover"></image>
+              <text>{{isGroup==='1'?'我要拼团':'独立解锁'}}</text>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

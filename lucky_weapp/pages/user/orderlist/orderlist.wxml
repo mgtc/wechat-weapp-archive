@@ -1,0 +1,25 @@
+<import src="/pages/common/order.wxml" />
+
+<view class="container">
+  <view class="tag-box">
+    <view wx:for="{{tags}}" wx:key="*this"
+      class="tag-item {{item.show?'tag-item-active':''}}"
+      data-index="{{index}}"
+      catchtap="changeTag">
+      {{item.name}}
+    </view>
+  </view>
+  <scroll-view scroll-y enable-back-to-top="true" class="order-box">
+    <view
+      class="order-item"
+      wx:for="{{orders}}"
+      wx:key="*this"
+      catchtap="toInfo"
+      data-id="{{item.orderId}}"
+      hidden="{{currentTag===0?false:((currentTag===1&&item.state===0)||(currentTag===2&&item.state!==0)?false:true)}}">
+      <template
+        is="order"
+        data="{{...item}}" />
+    </view>
+  </scroll-view>
+</view>

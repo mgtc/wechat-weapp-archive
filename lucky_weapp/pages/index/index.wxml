@@ -1,0 +1,104 @@
+<!--index.wxml-->
+<import src="/pages/common/foot.wxml" />
+
+<view class="container">
+  <!-- top-banner -->
+  <view class="top-banner-box">
+    <image class="top-banner" src="/static/common/top-banner.png"></image>
+  </view>
+  <!-- input area -->
+  <view class="input-area">
+    <view class="section">
+      <view>你的名字</view>
+      <view class="input-section">
+        <input
+          style="width: 100%;"
+          name="input"
+          bindblur="nameChange"
+          bindconfirm="nameChange"
+          placeholder="点击输入"
+          value="{{inputName}}" />
+      </view>
+    </view>
+    <view class="section">
+      <view>你的性别</view>
+      <view class="input-section">
+        <radio-group catchchange="sexChange">
+          <label class="radio" wx:for="{{sexChoice}}" wx:key="*this">
+            <radio value="{{item.value}}" checked="{{item.checked}}"/>
+            {{item.value}}
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <!-- 日期选择 -->
+    <view class="section {{dateSelected?'':'attention'}}">
+      <view>出生日期</view>
+      <view class="input-section">
+        <picker
+          class="picker"
+          mode="date"
+          value="1990-01-01"
+          start="1920-01-01"
+          end="{{endDate}}"
+          bindchange="dateChange">
+          <view class="picker-show {{dateSelected?'':'unpick'}}">
+            公历 {{date}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="section {{timeSelected?'':'attention'}}">
+      <view>出生时间</view>
+      <view class="input-section">
+        <picker
+          class="picker"
+          mode="time"
+          value="{{time}}"
+          start="00:00"
+          end="23:59"
+          bindchange="timeChange">
+          <view class="picker-show {{timeSelected?'':'unpick'}}">
+            {{timeSelected?'':timeNotice}}{{time}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="btns">
+      <button
+        class="toInfo-btn"
+        formType="submit"
+        catchtap="toInfo">
+        <image class="bt-logo" src='/static/index/bt.png' background-size="cover"></image>
+        <text>开始测算</text>
+      </button>
+    </view>
+  </view>
+  <!-- banner && intro -->
+  <view class='banner-area'>
+    <image class='banner' src='/static/index/banner.png'></image>
+  </view>
+  <view class='chart-area'>
+    <!-- title -->
+    <view class="hint-title-box">
+      <text class="hint-title">解锁报告，你将会得到</text>
+      <text style="color: rgb(207, 81, 89);">（输入出生日期看到更多信息）</text>
+    </view>
+    <image class='chart' src='/static/index/chart.png'></image>
+  </view>
+  <view class='category-area'>
+    <image class='category' src='/static/index/category.png'></image>
+  </view>
+  <!-- counselors -->
+  <view class='counselor-area'>
+    <image class='counselor counselor-1' src='/static/index/counselor-1.png'></image>
+    <image class='counselor counselor-2' src='/static/index/counselor-2.png'></image>
+    <image class='counselor counselor-3' src='/static/index/counselor-3.png'></image>
+  </view>
+  <template is="foot" />
+  <view class="myOrder" catchtap="toMyOrder">
+    <image class="myOrder-btn" src="/static/index/my.png" />
+    <view style="margin: 10rpx;">我的订单</view>
+  </view>
+</view>

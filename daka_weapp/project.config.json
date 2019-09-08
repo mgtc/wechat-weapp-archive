@@ -1,0 +1,77 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"uglifyFileName": false
+	},
+	"appid": "",
+	"projectname": "daka",
+	"libVersion": "2.2.5",
+	"packOptions": {
+		"ignore": [
+			{
+				"type": "file",
+				"value": "README.md"
+			},
+			{
+				"type": "folder",
+				"value": "node_modules"
+			},
+			{
+				"type": "suffix",
+				"value": ".md"
+			}
+		]
+	},
+	"compileType": "miniprogram",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "书签入口",
+					"pathName": "pages/bookmark/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "打卡页面",
+					"pathName": "pages/daka/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "分享页面",
+					"pathName": "pages/bookmark/share",
+					"query": "date=2019-01-28",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,79 @@
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-bottom: 10rpx solid rgb(220, 220, 220);
+}
+
+.userinfo-avatar {
+  width: 130rpx;
+  height: 130rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #111111;
+  margin: 20rpx;
+}
+
+.sex-img {
+  margin: 0 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+
+/* label-box */
+
+.label-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-bottom: 10rpx solid rgb(220, 220, 220);
+}
+
+.label-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid rgb(220, 220, 220);
+  position: relative;
+}
+
+.label-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.label-text {
+  color: #111111;
+  margin: 16rpx;
+  font-size: 32rpx;
+}
+
+.label-arrow {
+  position: absolute;
+  right: 25rpx;
+}
+
+.arrow-up {
+  height: 25rpx;
+  border: 1rpx solid rgb(207, 81, 89);
+  transform: rotate(-45deg);
+  position: relative;
+  top: 6rpx;
+}
+
+.arrow-down {
+  height: 25rpx;
+  border: 1rpx solid rgb(207, 81, 89);
+  transform: rotate(45deg);
+  position: relative;
+  bottom: 6rpx;
+}

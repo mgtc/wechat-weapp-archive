@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/info/info",
+    "pages/user/grouplist/grouplist",
+    "pages/user/orderlist/orderlist",
+    "pages/group/group",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "XXX运势",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ffffff"
+  },
+  "networkTimeout": {},
+  "debug": true
+}

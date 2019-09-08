@@ -1,0 +1,31 @@
+<!--
+  groupid: string
+  state: boolean
+  orderId: string
+  orderTime: string
+  totalFee: number
+-->
+<template name="groupItem">
+  <view class="component-group">
+    <text class="group-text">拼团</text>
+    <view class="group-content">
+      <view class="group-item-row group-content-item">
+        <text class="group-content-item-text title">团号</text>
+        <text class="group-content-item-text content">{{groupid}}</text>
+      </view>
+      <view class="group-item-row group-content-item">
+        <text class="group-content-item-text title">创建时间</text>
+        <text class="group-content-item-text content">{{orderTime}}</text>
+      </view>
+    </view>
+    <view class="group-item-row group-state">
+      <view class="title">
+        <text style="font-size:25rpx; padding: 0 10rpx;">¥</text>
+        <text style="font-size:35rpx; padding: 0 10rpx;">{{totalFee}}</text>
+      </view>
+      <view class="content">
+        <text class="state-box">{{state?'已完成':'拼团中'}}</text>
+      </view>
+    </view>
+  </view>
+</template>

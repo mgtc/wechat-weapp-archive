@@ -1,0 +1,136 @@
+.banner {
+  height: 416rpx;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+}
+
+.tips {
+  width: 642rpx;
+  height: 34rpx;
+  margin: 18rpx auto;
+  font-size: 24rpx;
+  font-weight: 400;
+  font-family: PingFangSC-Regular;
+  line-height: 34rpx;
+  letter-spacing: 2rpx;
+}
+
+/* 水平滚动 */
+
+.scroll-view_H {
+  margin-left: 70rpx;
+  width: 680rpx;
+  height: 220rpx;
+  white-space: nowrap;
+}
+
+.scroll-view-item_H {
+  display: inline-block;
+  width: 90rpx;
+  height: 100%;
+  margin-left: 38rpx;
+}
+
+.scroll-view-item_H:first-child {
+  margin-left: 0rpx;
+}
+
+.item-step, .item-step-active {
+  width: 90rpx;
+  height: 220rpx;
+  position: relative;
+}
+
+.item-step::after, .item-step-active::after {
+  width: 80rpx;
+  height: 2rpx;
+  content: '';
+  position: absolute;
+  top: 24rpx;
+  left: 69rpx;
+  z-index: 99;
+}
+
+.item-step::after {
+  background: #ac171f;
+}
+
+.item-step-active::after {
+  background-color: #edd8b0;
+}
+
+.scroll-view-item_H:last-child .item-step::after {
+  background-color: transparent;
+}
+
+.item-step-circle, .item-step-circle-unlink {
+  margin: 0 auto;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  position: relative;
+}
+
+.item-step-circle {
+  background: linear-gradient(180deg, rgba(228, 213, 178, 1) 0%, rgba(196, 171, 123, 1) 100%);
+}
+
+.item-step-circle-unlink {
+  background: #ac171f;
+}
+
+.item-step-circle-unpunched {
+  margin: 0 auto;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  position: relative;
+  background: #ac171f;
+  border: 1px solid #c4ab7b;
+}
+
+.item-step-image {
+  display: block;
+  margin-top: 26rpx;
+  height: 146rpx;
+  background: #ac171f;
+  border-radius: 7rpx;
+}
+
+/* checked 图标 */
+
+.item-step-checked-icon {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 100%;
+  background-color: #cd4400;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.item-step-checked-icon:after {
+  content: '\00a0';
+  display: inline-block;
+  border: 4rpx solid #fff;
+  border-top-width: 0;
+  border-right-width: 0;
+  width: 16rpx;
+  height: 8rpx;
+  transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  position: absolute;
+  top: 6rpx;
+  left: 4rpx;
+}
+
+/* 隐藏滚动条 */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

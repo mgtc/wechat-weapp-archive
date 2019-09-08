@@ -1,0 +1,63 @@
+<navigationBar id="navigationBar" title="{{headerConfig.title_text}}" back="true" color="#4A4A4A" fontSize="37rpx" fixed="true"></navigationBar>
+
+<view class="page-wrap">
+
+  <view class="banner-wrap">
+    <view class="banner">
+      <image class="banner-img" src="../../assets/images/banner-punch-finish.png"></image>
+    </view>
+
+    <view class="tips tips-book">我已解锁 {{ punchCount }} 本书 | 已有 {{ peoples }} 人与我一起读书</view>
+
+    <!-- <view class="punch-show">
+      <view class="banner" style='height:333rpx;'>
+        <image class="banner-img" src="../../assets/images/example-01.png"></image>
+      </view>
+    </view> -->
+
+    <!-- 滚动书签 scroll-into-view 滚动到指定位置 -->
+    <scroll-view class="scroll-view_H" scroll-x scroll-into-view="index-{{ (todayIndex-2) >= 0 ? (todayIndex-2) : 0 }}">
+
+      <view class="scroll-view-item_H" wx:for="{{ all_dates }}" wx:key="index" id="index-{{index}}">
+
+        <!-- 当前日期之后，显示样式 -->
+        <view class="item-step" wx:if="{{ index > todayIndex }}">
+          <view class="item-step-circle-unlink"></view>
+          <!-- <view class="item-step-image"></view> -->
+        </view>
+
+        <!-- 当前日期之前，已经打卡 -->
+        <view class="{{ index === todayIndex ? 'item-step': 'item-step-active' }}" wx:elif="{{ showData[index] }}">
+          <view class="item-step-circle">
+            <view class="item-step-checked-icon"></view>
+          </view>
+          <view class="item-step-image" bindtap="handleImageClick" data-date="{{ all_dates[index] }}">
+            <image style='width:90rpx; height:146rpx;' src='{{ small_img_url }}'></image>
+          </view>
+        </view>
+
+        <!-- 未打卡状态 -->
+        <view class="item-step-active" wx:else>
+          <view class="item-step-circle-unpunched"></view>
+          <view class="item-step-image"></view>
+        </view>
+
+
+
+      </view>
+    </scroll-view>
+
+    <view class="tips tips-children" wx:if="{{ (15- punchCount) > 0  }}">
+      还差 {{ 15 - punchCount }} 天，即可为孩子们送出一份关爱
+    </view>
+
+    <view class="tips tips-children" wx:else>
+      挑战完成，已经为孩子们送出一份关爱
+    </view>
+
+  </view>
+
+  <form reportSubmit="true" bindsubmit='handleSubmit'>
+    <button disabled='{{ btnDisabled }}' class='btn-rectangle' bindtap='handleBookmarkClick' formType="submit">{{ btnDisabled ? '活动已结束' : '查看今日书签' }}</button>
+  </form>
+</view>

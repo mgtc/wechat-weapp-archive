@@ -1,0 +1,49 @@
+<navigationBar id="navigationBar" title="{{activity.name ? activity.name : headerConfig.title_text}}" back="true" color="#4A4A4A" fontSize="37rpx" fixed="true"></navigationBar>
+
+<view class="page-wrap">
+
+  <view class="home-wrap">
+    <view class="banner">
+      <image class="banner-img" src="../../assets/images/bg_daka_banner.png"></image>
+      <view class="banner-content">
+        <view class="banner-title">
+          <text class="banner-title-text" wx:if="{{theDay === -1}}">活动已经结束</text>
+          <text class="banner-title-text" wx:else>第 {{ theDay }} 天</text>
+        </view>
+        <view class="banner-descWrapper">
+          <text>打卡第{{ punchCount }}天</text>
+          <view class="banner-desc-middle"></view>
+          <text>已有{{ peoples }}人参与打卡</text>
+          <view class="banner-desc-middle"></view>
+          <text>{{ lottery }}次抽奖次数</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='book'>
+      <view class='book-desc'>
+        <image class="book-img" src="{{ activity_content[curIndex].thumb_img_url ? activity_content[curIndex].thumb_img_url : default_content.thumb_img_url }}"></image>
+        <view class="book-summary">
+          <view class="book-summary-text">{{ activity_content[curIndex].summary ? activity_content[curIndex].summary : default_content.summary }}</view>
+          <view class="book-summary-name">——《{{ activity_content[curIndex].author ? activity_content[curIndex].author : default_content.author }}》</view>
+        </view>
+
+      </view>
+
+      <view class='book-comment'>
+        <view class="book-commenter">好舍好得推荐语：</view>
+        <view class="book-comment-content">
+          {{ activity_content[curIndex].comment ? activity_content[curIndex].comment : default_content.comment }}
+        </view>
+      </view>
+    </view>
+
+    <view class="punch">
+      <form reportSubmit="true" bindsubmit='handleSubmit'>
+        <button class="btn-round" disabled='{{punchButtonDisable}}' bindtap="onPunchClick" formType="submit">{{punchButtonText}}</button>
+      </form>
+      <image class="punch-bottom-img" src="../../assets/images/daka_bottom.png" mode='widthFill' />
+    </view>
+
+  </view>
+</view>

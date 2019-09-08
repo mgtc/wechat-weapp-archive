@@ -1,0 +1,29 @@
+/**app.wxss**/
+
+@import 'style/weui.wxss';
+@import 'pages/common/foot.wxss';
+@import 'pages/common/order.wxss';
+@import 'pages/common/groupItem.wxss';
+page {
+  background-color: #f8f5f1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #f8f5f1;
+}
+
+
+/* top-banner-box */
+
+.top-banner-box {
+  width: 100%;
+}
+
+.top-banner {
+  width: 100%;
+  height: 300rpx;
+}

@@ -1,0 +1,87 @@
+.banner {
+  height: 416rpx;
+}
+
+.banner-content {
+  width: 100%;
+  position: absolute;
+  top: 260rpx;
+  right: 54rpx;
+  float: right;
+  text-align: right;
+  height: 100%;
+}
+
+.banner-title-text {
+  font-size: 72rpx;
+  font-weight: 400;
+  line-height: 90rpx;
+  font-family: MFYanSong_Noncommercial-Regular;
+}
+
+.banner-descWrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+
+.banner-desc-middle {
+  margin: 0 16rpx;
+  width: 2rpx;
+  height: 20rpx;
+  background-color: rgb(255, 255, 255);
+  line-height: 1;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  margin: 34rpx auto;
+  font-size: 24rpx;
+  font-weight: 400;
+  line-height: 34rpx;
+  letter-spacing: 2rpx;
+}
+
+.book-desc {
+  display: flex;
+  flex: row;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 75rpx;
+}
+
+.book-img {
+  width: 112rpx;
+  height: 144rpx;
+}
+
+.book-summary {
+  margin-left: 28rpx;
+  width: 502rpx;
+  height: 102rpx;
+}
+
+.book-summary-text {
+  text-align: left;
+}
+
+.book-summary-name {
+  float: right;
+}
+
+.book-comment {
+  width: 642rpx;
+  height: 102rpx;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.punch-bottom-img {
+  margin: 20rpx auto;
+  width: 314rpx;
+  height: 58rpx;
+}

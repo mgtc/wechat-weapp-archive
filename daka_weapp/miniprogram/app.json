@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/over/index",
+    "pages/daka/index",
+    "pages/bookmark/share",
+    "pages/bookmark/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "好舍好得新春读书会",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#F5F5F5",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#C4AB7B",
+    "selectedColor": "#EDD8B0",
+    "backgroundColor": "#AC171F",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/daka/index",
+        "text": "打卡",
+        "iconPath": "assets/icons/daka.png",
+        "selectedIconPath": "assets/icons/daka-active.png"
+      },
+      {
+        "pagePath": "pages/bookmark/index",
+        "text": "书签",
+        "iconPath": "/assets/icons/bookmark.png",
+        "selectedIconPath": "assets/icons/bookmark-active.png"
+      }
+    ]
+  },  
+  "usingComponents": {
+    "header": "components/widget/header/index",
+    "navigationBar": "components/widget/navigationBar/index",
+    "van-button": "components/vant-weapp/dist/button/index",
+    "van-popup": "components/vant-weapp/dist/popup/index",
+    "van-row": "components/vant-weapp/dist/row/index",
+    "van-col": "components/vant-weapp/dist/col/index",
+    "van-tab": "components/vant-weapp/dist/tab/index",
+    "van-tabs": "components/vant-weapp/dist/tabs/index"
+  }
+}

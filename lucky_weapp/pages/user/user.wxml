@@ -1,0 +1,39 @@
+<import src="../common/order.wxml" />
+
+<view class="container">
+  <view class="userinfo">
+    <view>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view>
+      <image
+        class="sex-img"
+        src="/static/info/{{userInfo.gender==1?'male.png':'female.png'}}" />
+    </view>
+  </view>
+  <view class="label-box">
+    <view class="label-item" catchtap="toOrderList">
+      <image
+        class="label-img"
+        src="/static/user/order-icon.png" />
+      <text class="label-text">我的订单</text>
+      <view class="label-arrow">
+        <view class="arrow-up"></view>
+        <view class="arrow-down"></view>
+      </view>
+    </view>
+    <view class="label-item" catchtap="toGroupList">
+      <image
+        class="label-img"
+        src="/static/user/group-icon.png" />
+      <text class="label-text">我的拼团</text>
+      <view class="label-arrow">
+        <view class="arrow-up"></view>
+        <view class="arrow-down"></view>
+      </view>
+    </view>
+  </view>
+</view>

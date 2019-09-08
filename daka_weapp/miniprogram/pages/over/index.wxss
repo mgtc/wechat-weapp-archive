@@ -1,0 +1,13 @@
+@import '../../components/wheel/wheel.wxss';
+
+
+.index-show, .index-default {
+  padding: 80rpx;
+  text-align: center;
+}
+.index-tip {
+  color: #FFEDD8B0;
+  font-size: 32rpx;
+  text-align: center;
+  margin: 20rpx 0;
+}

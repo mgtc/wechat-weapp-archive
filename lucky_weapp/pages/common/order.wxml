@@ -1,0 +1,30 @@
+<!--
+  orderId: int
+  orderTime: string
+  state: boolean
+  totalFee: number
+-->
+<template name="order">
+  <view class="component-order">
+    <text class="order-text">XXX运势报告</text>
+    <view class="order-content">
+      <view class="order-item-row order-content-item">
+        <text class="order-content-item-text title">订单号</text>
+        <text class="order-content-item-text content">{{orderId}}</text>
+      </view>
+      <view class="order-item-row order-content-item">
+        <text class="order-content-item-text title">创建时间</text>
+        <text class="order-content-item-text content">{{orderTime}}</text>
+      </view>
+    </view>
+    <view class="order-item-row order-state">
+      <view class="title">
+        <text style="font-size:25rpx; padding: 0 10rpx;">¥</text>
+        <text style="font-size:35rpx; padding: 0 10rpx;">{{totalFee||'团购一个试试？节省20元'}}</text>
+      </view>
+      <view class="content">
+        <text class="state-box">{{state===1?'已解锁':(state===2?'团购中':'待支付')}}</text>
+      </view>
+    </view>
+  </view>
+</template>

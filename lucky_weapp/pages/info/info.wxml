@@ -1,0 +1,269 @@
+<import src="../common/foot.wxml" />
+
+<view class="container">
+  <view class="profile-box">
+    <view class="profile">
+      <text class="uname">{{inputName}}</text>
+      <image
+        class="sex-img"
+        src="/static/info/{{sex=='男'?'male.png':'female.png'}}" />
+      <text class="sex">{{sex}}</text>
+    </view>
+    <view class="bazi">
+      <view class="bazi-row-item">
+         <text>公历</text>
+         <text>八字</text>
+      </view>
+      <view class="vertical-line"></view>
+      <view class="bazi-row-item">
+        <text>{{yy.time}}年</text>
+        <text>{{yy.bazi}}</text>
+      </view>
+      <view class="bazi-row-item">
+        <text>{{mm.time}}月</text>
+        <text>{{mm.bazi}}</text>
+      </view>
+      <view class="bazi-row-item">
+        <text>{{dd.time}}日</text>
+        <text>{{dd.bazi}}</text>
+      </view>
+      <view class="bazi-row-item">
+        <text>{{hh.time}}时</text>
+        <text>{{hh.bazi}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="canvas-box">
+    <view class="canvas-title">
+      <image
+        class="calendar-img"
+        src="/static/info/calendar.png" />
+      <text class="calendar-title">2018每月运势</text>
+    </view>
+    <canvas
+      canvas-id="score-chart"
+      style="margin: 0 auto; width: 610rpx; height: 400rpx;">
+    </canvas>
+  </view>
+
+  <view class="basic-content-box report-box" wx:if="{{state===1}}">
+    <view class="element-chart-box">
+      <view class="category-title-box">
+        <text class="category-title">五行力量</text>
+      </view>
+      <canvas
+        canvas-id="element-chart"
+        style="margin: 0 auto; width: 610rpx; height: 500rpx;">
+      </canvas>
+    </view>
+    <view class="category-box">
+      <view class="category-title-box">
+        <text class="category-title">先天性格概述</text>
+      </view>
+      <view class="char-item-box char-sum">
+        <text class="char-text">{{charDesc.sum}}</text>
+      </view>
+      <view class="char-item-box char-item">
+        <text class="char-text">「{{charDesc.type}}」事业:</text>
+        <text class="char-text item-content">{{charDesc.career}}</text>
+      </view>
+      <view class="char-item-box char-item">
+        <text class="char-text">「{{charDesc.type}}」友情:</text>
+        <text class="char-text item-content">{{charDesc.friend}}</text>
+      </view>
+      <view class="char-item-box char-item">
+        <text class="char-text">「{{charDesc.type}}」爱情:</text>
+        <text class="char-text item-content">{{charDesc.love}}</text>
+      </view>
+      <view class="idol-wrapper">
+        <view class="category-title-box">
+          <text class="category-title char-item">代表人物</text>
+        </view>
+        <view class="idol-img-box">
+          <view class="idol" wx:for="{{idol}}" wx:key="*this">
+            <view><image class="idol-img" src="{{item.url}}" /></view>
+            <text class="char-item char-text">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="category-box">
+      <view class="category-title-box">
+        <text class="category-title">五行喜好</text>
+      </view>
+      <view class="ele-like-box">
+        <view class="ele-like-row">
+          <view class="ele-like-item">
+            <view class="ele-text char-text">方位</view>
+            <view class="ele-text char-text">{{eleLike.direction}}</view>
+          </view>
+          <view class="ele-vertical-line"></view>
+          <view class="ele-like-item">
+            <view class="ele-text char-text">数字</view>
+            <view class="ele-text char-text">{{eleLike.number}}</view>
+          </view>
+        </view>
+        <view class="ele-like-row">
+          <view class="ele-like-item">
+            <view class="ele-text char-text">颜色</view>
+            <view class="ele-text char-text">{{colors[eleLike.color]}}</view>
+            <view class="ele-text color-box {{eleLike.color}}"></view>
+          </view>
+          <view class="ele-vertical-line"></view>
+          <view class="ele-like-item">
+            <view class="ele-text char-text">元素</view>
+            <view class="ele-text char-text">{{eleLike.ele}}</view>
+            <view class="ele-text">{{emoji[eleLike.ele]}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="category-box">
+      <view class="category-title-box">
+        <text class="category-title">戌狗年总评</text>
+      </view>
+      <view class="year-desc-box">
+        <view class="year-desc-line" wx:for="{{yearDesc}}" wx:key="*this">
+          {{item}}
+        </view>
+      </view>
+    </view>
+    <view class="category-box">
+      <view class="category-title-box">
+        <text class="category-title">流月运势</text>
+      </view>
+      <view class="month-wrapper">
+        <view class="month-box" wx:for="{{monthDesc}}" wx:key="*this">
+          <view class="month-box-title month-title-text">
+            <view class="char-text" style="font-weight:bold;">「{{months[item.index].tgdz}}」</view>
+            <view class="char-text" style="font-weight:bold; margin-left: -15rpx;">月</view>
+            <view class="month-text" style="margin-left: 30rpx;">{{months[item.index].duration}}</view>
+          </view>
+          <view class="label-box">
+            <view class="label-item">
+              <view class="label-title">宜</view>
+              <view class="ele-vertical-line" style="margin-right:35rpx"></view>
+              <view class="label-tag" wx:for="{{item.label.good}}">
+                {{item}}
+              </view>
+            </view>
+            <view class="label-item">
+              <view class="label-title">忌</view>
+              <view class="ele-vertical-line" style="margin-right:35rpx"></view>
+              <view class="label-tag" wx:for="{{item.label.bad}}">
+                {{item}}
+              </view>
+              </view>
+          </view>
+          <view class="month-star">
+            <view class="month-title-text">本月运势:</view>
+            <view class="star-box" wx:for="{{item.score}}">🌟</view>
+            <view
+              class="score-box {{score[item.index]>=70?'red-text':(score[item.index]<50?'green-text':'')}}">
+              {{score[item.index]}}分
+            </view>
+          </view>
+          <view class="month-desc">
+            {{item.desc}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="hint-box basic-content-box" wx:else>
+    <view class="group-box"wx:if="{{state===2}}">
+      <view><text style="font-style: italic;">团购</text>中，待解锁。</view>
+      <view>凑齐4人即可解锁年运报告</view>
+      <view class="fixed-share-btn">
+        <button
+            class="fix-btns"
+            open-type="share">
+            <text>邀请好友拼团</text>
+        </button>
+      </view>
+    </view>
+
+    <block wx:for="{{hint}}" wx:key="*this">
+      <view class="hint-box-inner">
+        <view class="hint-content">
+          <view class="hint-title-wrapper">
+            <view class="hint-title-box">
+              <image
+                class="hint-img"
+                src="/static/info/icon.png" />
+              <text class="hint-title">{{item.title}}</text>
+              <image
+                class="hint-img"
+                src="/static/info/icon.png" />
+            </view>
+          </view>
+          <view class="hint-desc"
+            wx:for="{{item.desc}}" wx:for-item="desc" wx:key="*this">
+            {{desc}}
+          </view>
+        </view>
+        <view wx:if="{{state===0}}" class="hint-btn"
+          catchtap="toPay" data-group="0">
+          <image class="lock-logo" src='/static/info/lock.png' background-size="cover"></image>
+          <text class="lock-text">解锁查看详情</text>
+        </view>
+      </view>
+    </block>
+    <view class="hint-foot">
+      <view class="hint-foot-img-box">
+        <image wx:for="{{[0,1,2]}}" wx:key="*this"
+          class="hint-foot-img"
+          src="/static/info/icon.png" />
+      </view>
+      <view class="hint-desc">感情、事业、财富、健康、人际...</view>
+      <view class="hint-desc">选择比努力更重要，趋利避害、集中发力，</view>
+      <view class="hint-desc">用不到一杯星巴克的价格，现在解锁你的运势导航</view>
+    </view>
+    <view wx:if="{{state===0}}" class="taiji-box">
+      <image class="taiji-logo" src='/static/info/btn.png' background-size="cover"></image>
+      <text class="taiji-text">解锁我的八字运势</text>
+    </view>
+    <view wx:if="{{state===0}}" class="fix-btn">
+      <view class="pay-btn-box">
+        <button
+          class="pay-btn"
+          catchtap="toPay"
+          data-group="0">
+          <image class="bt-logo" src='/static/info/lock.png' background-size="cover"></image>
+          <text>立即解锁</text>
+          <text>¥ {{price.original}}</text>
+        </button>
+      </view>
+      <view class="btn-vertical-line">
+      </view>
+      <view class="pay-btn-box">
+        <button
+          class="pay-btn"
+          catchtap="toPay"
+          data-group="1">
+          <image class="bt-logo" src='/static/info/lock.png' background-size="cover"></image>
+          <text>拼单解锁</text>
+          <text>¥ {{price.discount}}</text>
+        </button>
+      </view>
+    </view>
+  </view>
+  <!-- 底栏 -->
+  <view class="bottom-bar">
+    <!-- 已解锁 -->
+    <view class="adv-box" wx:if="{{state===1}}">
+      <view class="adv-line">对年运报告还有疑虑？</view>
+      <view class="adv-line">想了解自己今年详细运势？</view>
+      <view class="adv-line">可关注下方XX运势微信公众号</view>
+      <view class="adv-line">在对话框输入 #年运</view>
+      <view class="adv-line">付费后即可获得</view>
+      <view class="adv-line">XX运势项目</view>
+      <template is="foot" />
+    </view>
+    <!-- 团购中 -->
+    <template is="foot" wx:elif="{{state===2}}" />
+    <!-- 未付费 -->
+    <view wx:else></view>
+  </view>
+</view>

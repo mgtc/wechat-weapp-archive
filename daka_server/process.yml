@@ -1,0 +1,14 @@
+apps:
+- script   : ./app.js
+  name     : 'api-app'
+  exec_mode: fork
+  watch  : true
+  ignore_watch: ["tmp", "node_modules"]
+  env    :
+    NODE_ENV: production
+- script : ./tools/cronTasks.js
+  name   : 'cron'
+  watch  : true
+  ignore_watch: ["tmp", "node_modules"]
+  env    :
+    NODE_ENV: production

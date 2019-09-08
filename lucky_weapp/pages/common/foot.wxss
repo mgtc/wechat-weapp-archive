@@ -1,0 +1,18 @@
+.component-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-foot {
+  width: 280rpx;
+  height: 280rpx;
+  opacity: 0.75;
+  border-radius: 20rpx;
+}
+
+.component-foot-text {
+  color: #595757;
+  font-size: 23.53rpx;
+  margin: 15rpx 0;
+}

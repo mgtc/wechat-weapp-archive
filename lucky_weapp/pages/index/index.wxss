@@ -1,0 +1,215 @@
+/* part 1 */
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.section {
+  width: 660.65rpx;
+  height: 90.5rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(255, 255, 255);
+  border: 1rpx double rgb(237, 237, 237);
+  border-radius: 50rpx;
+  margin: 10rpx 0;
+  font-size: 30.77rpx;
+  /* 10pt; */
+}
+
+.input-section {
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.picker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.picker-show {
+  width: 363.3575rpx;
+  height: 100%;
+}
+
+.btns {
+  margin-top: 30rpx;
+}
+
+.toInfo-btn {
+  width: 398.2rpx;
+  height: 90.5rpx;
+  font-size: 36.2rpx;
+  letter-spacing: 15rpx;
+  font-family: 'Source Han Sans CN', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  background-color: rgb(207, 81, 89);
+  border: 1rpx double rgb(255, 226, 218);
+  border-radius: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.bt-logo {
+  width: 36.2rpx;
+  height: 36.2rpx;
+}
+
+
+/* part 2 */
+
+.banner-area {
+  margin-top: 107rpx;
+}
+
+.banner {
+  height: 614px;
+  background-size: cover;
+}
+
+.chart-area {
+  margin-top: 57rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* 标题 */
+
+.hint-title-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hint-title {
+  font-size: 34rpx;
+  padding: 0 10rpx;
+  position: relative;
+}
+
+.hint-title:before {
+  content: ' ';
+  position: absolute;
+  left: -7rpx;
+  bottom: 50%;
+  height: 3rpx;
+  width: 10rpx;
+  border-bottom: 1rpx solid #111111;
+  color: #111111;
+}
+
+.hint-title:after {
+  content: ' ';
+  position: absolute;
+  right: -7rpx;
+  bottom: 50%;
+  height: 3rpx;
+  width: 10rpx;
+  border-bottom: 1rpx solid #111111;
+  color: #111111;
+}
+
+.chart {
+  height: 263px;
+  background-size: cover;
+}
+
+.category-area {
+  margin-top: 57rpx;
+}
+
+.category {
+  height: 162px;
+  background-size: cover;
+}
+
+
+/* part 3 */
+
+.counselor-area {
+  margin-top: 57rpx;
+  margin-bottom: 100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counselor {
+  background-size: cover;
+  margin: 20rpx 0;
+}
+
+.counselor-1 {
+  height: 134px;
+}
+
+.counselor-2 {
+  height: 97px;
+}
+
+.counselor-3 {
+  height: 80px;
+}
+
+
+/* part 4 */
+
+.myOrder {
+  position: fixed;
+  right: 20rpx;
+  bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(207, 81, 89);
+  border: 1rpx double rgb(255, 226, 218);
+  opacity: 0.7;
+  border-radius: 50rpx;
+  color: rgb(255, 255, 255);
+}
+
+.myOrder-btn {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+
+/* 其他 */
+
+.unpick {
+  opacity: 0.5;
+}
+
+
+/* 动画 */
+
+.attention {
+  animation: glow 800ms ease-out infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(26, 173, 25, .2);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(26, 173, 25, .6);
+  }
+}

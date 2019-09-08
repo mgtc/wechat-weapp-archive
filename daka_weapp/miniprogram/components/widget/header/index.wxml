@@ -1,0 +1,6 @@
+<view>
+  <view class="title" style="height:{{title_height}}px;padding-top:{{statusbarHeight}}px;">
+    <view class="title_text floatL">{{title_text}}</view>
+  </view>
+  <view style='height:{{title_height}}px;'></view>
+</view>

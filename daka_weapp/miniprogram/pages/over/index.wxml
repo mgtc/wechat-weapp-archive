@@ -1,0 +1,13 @@
+<import src="../../components/wheel/wheel.wxml" />
+
+<navigationBar id="navigationBar" title="{{ pageTitle }}" back="true" color="#4A4A4A" fontSize="37rpx" fixed="true"></navigationBar>
+
+<view class="index">
+  <view class="index-show" wx:if="{{showWheel}}">
+    <template is="wheel" data="{{...wheel}}"></template>
+    <view class="index-tip">tips: 点击开始抽奖</view>
+  </view>
+  <view class="index-default" wx:else>
+    <view class="index-tip">您的抽奖次数不足，不能参加抽奖 </view>
+  </view>
+</view>

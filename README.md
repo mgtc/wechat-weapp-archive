@@ -22,7 +22,7 @@ wechat-weapp-archive 是整理归档已经上线过的微信小程序以及配�
 
 项目包含二部分：
 - 微信小程序前端页面，[项目源码](https://github.com/mgtc/wechat-weapp-archive/tree/master/lucky_weapp)
-- h5页面，[项目源码](https://github.com/mgtc/wechat-weapp-archive/tree/master/daka_h5)
+- h5页面，[项目源码](https://github.com/mgtc/wechat-weapp-archive/tree/master/lucky_h5)
 
 小程序线上体验:<br/>
 ![](./assets/lucky.png)
